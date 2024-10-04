@@ -1,0 +1,12 @@
+{
+  "diagnostics.globals": [
+    "busted"
+  ],
+
+  "workspace.library": [
+    "${3rd}/busted/library",
+    "./lua_modules/share/lua/"
+  ],
+
+  "runtime.version": "LuaJIT"
+}
