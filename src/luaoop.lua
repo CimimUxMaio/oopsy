@@ -49,4 +49,4 @@ function Base:instanceOf(cls)
   return parent:instanceOf(cls)
 end
 
-return class, extends
+return { class = class, extends = extends }
