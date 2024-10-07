@@ -65,6 +65,13 @@ describe("Instance creation", function()
     local instance = ClassB:new()
     assert.is.equal(2, instance.value)
   end)
+
+  it("#initialize method is called with the same arguments as #new", function()
+    local ClassA = class("ClassA")
+    spy.on(ClassA, "initialize")
+    ClassA:new(42, "hello world", true)
+    assert.spy(ClassA.initialize).was.called_with(ClassA, 42, "hello world", true)
+  end)
 end)
 
 describe("#inheritance", function()
