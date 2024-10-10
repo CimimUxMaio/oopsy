@@ -8,7 +8,7 @@ source = {
 
 description = {
   homepage = "git://github.com/CimimUxMaio/luaoop",
-  summary = "A simple object-oriented programming library for Lua.",
+  summary = "A very simple and straight to the point object-oriented programming library for Lua.",
   license = "MIT",
 }
 
