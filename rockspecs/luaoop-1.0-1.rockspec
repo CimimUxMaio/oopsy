@@ -3,11 +3,11 @@ package = "luaoop"
 version = "1.0-1"
 
 source = {
-  url = "https://github.com/CimimUxMaio/luaoop",
+  url = "git://github.com/CimimUxMaio/luaoop",
 }
 
 description = {
-  homepage = "https://github.com/CimimUxMaio/luaoop",
+  homepage = "git://github.com/CimimUxMaio/luaoop",
   summary = "A simple object-oriented programming library for Lua.",
   license = "MIT",
 }
