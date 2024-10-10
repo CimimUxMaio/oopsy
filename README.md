@@ -1,2 +1,2 @@
 # luaoop
-A small library with basic tools for Object-Oriented programming in Lua.
+A very simple and straight to the point object-oriented programming library for Lua.
