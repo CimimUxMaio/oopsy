@@ -1,6 +1,6 @@
 ---@class Base
 ---@field className string
-local Base = { className = "Class", initialize = function() end }
+local Base = { className = "Base", initialize = function() end }
 
 ---@param name string
 ---@return Base
