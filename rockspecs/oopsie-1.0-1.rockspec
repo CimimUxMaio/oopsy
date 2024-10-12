@@ -1,13 +1,13 @@
 rockspec_format = "3.0"
-package = "luaoop"
+package = "oopsie"
 version = "1.0-1"
 
 source = {
-  url = "git://github.com/CimimUxMaio/luaoop",
+  url = "git://github.com/CimimUxMaio/oopsie",
 }
 
 description = {
-  homepage = "git://github.com/CimimUxMaio/luaoop",
+  homepage = "git://github.com/CimimUxMaio/oopsie",
   summary = "A very simple and straight to the point object-oriented programming library for Lua.",
   license = "MIT",
 }
@@ -15,7 +15,7 @@ description = {
 build = {
   type = "builtin",
   modules = {
-    luaoop = "src/luaoop.lua",
+    luaoop = "src/oopsie.lua",
   },
 }
 

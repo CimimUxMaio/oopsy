@@ -1,5 +1,5 @@
-local luaoop = require("luaoop")
-local class, extends = luaoop.class, luaoop.extends
+local oopsie = require("oopsie")
+local class, extends = oopsie.class, oopsie.extends
 
 describe("Class creation", function()
   it("#class does not fail", function()
