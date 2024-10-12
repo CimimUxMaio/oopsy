@@ -15,7 +15,7 @@ description = {
 build = {
   type = "builtin",
   modules = {
-    luaoop = "src/oopsie.lua",
+    oopsie = "src/oopsie.lua",
   },
 }
 
