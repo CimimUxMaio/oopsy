@@ -1,20 +1,29 @@
 ---@class Base
 ---@field className string
-local Base = { className = "Base", initialize = function() end }
+local Base = {}
+Base.className = "Base"
+Base.initialize = function(...) end
 
----@param name string
----@return Base
-local function class(name)
-  local cls = setmetatable({}, { __index = Base })
-  cls.className = name
-  return cls
+---@generic T : Base
+---@return T
+function Base:getClass()
+  local meta = getmetatable(self)
+  return meta and meta.__index
 end
 
 ---@generic T : Base
 ---@param parent T
 ---@return T
 local function extends(name, parent)
-  return setmetatable(class(name), { __index = parent })
+  local cls = setmetatable({}, { __index = parent })
+  cls.className = name
+  return cls
+end
+
+---@param name string
+---@return Base
+local function class(name)
+  return extends(name, Base)
 end
 
 ---@generic T : Base
@@ -31,22 +40,17 @@ end
 ---@param cls T
 ---@return boolean
 function Base:instanceOf(cls)
-  local meta = getmetatable(self)
+  local c = self:getClass()
 
-  local parent = nil
-  if meta ~= nil then
-    parent = meta.__index
-  end
-
-  if parent == nil then
+  if c == nil then
     return false
   end
 
-  if parent == cls then
+  if c == cls then
     return true
   end
 
-  return parent:instanceOf(cls)
+  return c:instanceOf(cls)
 end
 
 return { class = class, extends = extends }
