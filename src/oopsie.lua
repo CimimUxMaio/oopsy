@@ -53,4 +53,13 @@ function Base:instanceOf(cls)
   return c:instanceOf(cls)
 end
 
+---@param method string
+---@return function
+function Base:getMethod(method)
+  local func = self[method]
+  return function(...)
+    return func(self, ...)
+  end
+end
+
 return { class = class, extends = extends }

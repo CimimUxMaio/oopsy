@@ -177,3 +177,31 @@ describe("#getClass", function()
     assert.is.equal(ClassB, instance:getClass())
   end)
 end)
+
+describe("#getMethod", function()
+  it("Returns a function that calls the method on the instance", function()
+    ---@class ClassA : Base
+    local ClassA = class("ClassA")
+
+    function ClassA:sayHello()
+      return "Hello"
+    end
+
+    local instance = ClassA:new()
+    local method = instance:getMethod("sayHello")
+    assert.is.equal("Hello", method())
+  end)
+
+  it("Returns a function that calls the method with arguments", function()
+    ---@class ClassA : Base
+    local ClassA = class("ClassA")
+
+    function ClassA:sayHello(name)
+      return "Hello, " .. name
+    end
+
+    local instance = ClassA:new()
+    local method = instance:getMethod("sayHello")
+    assert.is.equal("Hello, World", method("World"))
+  end)
+end)
