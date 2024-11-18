@@ -204,4 +204,26 @@ describe("#getMethod", function()
     local method = instance:getMethod("sayHello")
     assert.is.equal("Hello, World", method("World"))
   end)
+
+  it("Fail when the method does not exist", function()
+    ---@class ClassA : Base
+    local ClassA = class("ClassA")
+    local instance = ClassA:new()
+    assert.has_error(function()
+      instance:getMethod("sayHello")
+    end)
+  end)
+
+  it("Fail when the method is not a function", function()
+    ---@class ClassA : Base
+    local ClassA = class("ClassA")
+
+    local instance = ClassA:new()
+    ---@diagnostic disable-next-line: inject-field
+    instance.notAMethod = 32
+
+    assert.has_error(function()
+      instance:getMethod("notAMethod")
+    end)
+  end)
 end)

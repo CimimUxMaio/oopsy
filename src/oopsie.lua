@@ -57,6 +57,11 @@ end
 ---@return function
 function Base:getMethod(method)
   local func = self[method]
+
+  if func == nil or type(func) ~= "function" then
+    error("Method " .. method .. " not found in class " .. self.className)
+  end
+
   return function(...)
     return func(self, ...)
   end
