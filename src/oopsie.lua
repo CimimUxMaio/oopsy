@@ -39,7 +39,7 @@ end
 ---@generic T : Base
 ---@param cls T
 ---@return boolean
-function Base:instanceOf(cls)
+function Base:isInstanceOf(cls)
   local c = self:getClass()
 
   if c == nil then
@@ -50,7 +50,7 @@ function Base:instanceOf(cls)
     return true
   end
 
-  return c:instanceOf(cls)
+  return c:isInstanceOf(cls)
 end
 
 ---@param method string
